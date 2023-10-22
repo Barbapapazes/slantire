@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   extends: '@nuxt/ui-pro',
-  modules: ['@nuxt/ui', '@nuxt/content', '@nuxthq/studio'],
+  modules: ['@nuxt/content', '@nuxt/ui', '@nuxthq/studio'],
 
   content: {
     documentDriven: true,

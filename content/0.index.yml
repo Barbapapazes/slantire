@@ -1,0 +1,49 @@
+title: Home
+layout: home
+hero:
+  title: Web developer and open source enthusiast
+  description: I'm Estéban, a web developer based in Paris. I enjoy contributing to open source projects like Nuxt or UnJS and writing articles to share my experiences.
+  links:
+    - label: My Articles
+      to: /articles
+      color: primary
+      variant: solid
+      size: lg
+    - label: About Me
+      to: /about
+      color: gray
+      variant: ghost
+      size: lg
+sections:
+  inspirations:
+    title: My Inspirations
+    cards:
+      - title: Nuxt
+        description: Nuxt is an open source framework that makes web development intuitive and powerful. Create performant and production-grade full-stack web apps and websites with confidence.
+        to: https://nuxt.com
+        src: https://images.unsplash.com/photo-1567360425618-1594206637d2?auto=format&fit=crop&q=80&w=1468&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+        alt: An abstract image
+      - title: UnJS
+        description: 'Agnostic Excellence: JavaScript Libraries, Tools, and Utilities, Crafted to Elevate Your Coding Journey.'
+        to: https://unjs.io
+        src: https://images.unsplash.com/photo-1527066579998-dbbae57f45ce?auto=format&fit=crop&q=80&w=1285&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+        alt: An abstract image
+    links:
+      - label: Discover More
+        to: /about
+        color: primary
+        variant: outline
+        size: lg
+        icon: i-ph-arrow-right
+        trailing: true
+  articles:
+    title: My Latest Articles
+    description: I write about web development, open source, and more.
+    links:
+      - label: All Articles
+        to: /articles
+        color: primary
+        variant: outline
+        size: lg
+        icon: i-ph-arrow-right
+        trailing: true

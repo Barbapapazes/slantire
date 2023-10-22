@@ -2,6 +2,20 @@ export default defineAppConfig({
   ui: {
     primary: 'sky',
     gray: 'zinc',
+    icons: {
+      light: 'i-ph-sun-dim-duotone',
+      dark: 'i-ph-moon-stars-duotone',
+    },
+    landing: {
+      card: {
+        body: {
+          base: 'h-full',
+        },
+        container: 'h-full flex flex-col',
+        title: 'text-2xl',
+        description: 'grow mt-2',
+      },
+    },
     header: {
       wrapper: 'relative border-none',
       button: {
@@ -23,6 +37,10 @@ export default defineAppConfig({
       links: {
         wrapper: 'mt-6',
       },
+    },
+    card: {
+      base: 'transition ease-in',
+      divide: 'divide-none',
     },
   },
   slantire: {

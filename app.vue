@@ -14,12 +14,18 @@ const links = computed(() => {
 <template>
   <UHeader :links="links">
     <template #logo>
-      <UAvatar src="https://esteban-soubiran.site/esteban.webp" alt="Picture of Estéban Soubiran" />
+      <div class="flex items-center gap-2">
+        <UAvatar src="https://esteban-soubiran.site/esteban.webp" alt="Picture of Estéban Soubiran" />
+        <span> Slantire </span>
+      </div>
     </template>
     <template #right>
       <div class="hidden lg:block">
         <FollowMe />
       </div>
+      <UTooltip class="mr-1 lg:mr-0 lg:ml-2" text="Toggle color mode" placement="bottom">
+        <UColorModeButton />
+      </UTooltip>
     </template>
     <template #panel>
       <UAsideLinks :links="links" />
