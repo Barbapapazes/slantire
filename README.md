@@ -1,4 +1,4 @@
-![CleanShot 2023-11-06 at 18 33 44@2x](https://github.com/Barbapapazes/slantire/assets/904724/01d27c6b-cf85-412e-b0bc-a718ad9990c1)
+![screenshot-nuxt-ui-pro-slantire](https://github.com/Barbapapazes/slantire/assets/904724/01d27c6b-cf85-412e-b0bc-a718ad9990c1)
 
 # Slantire
 
