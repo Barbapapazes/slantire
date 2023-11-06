@@ -1,3 +1,5 @@
+![screenshot-nuxt-ui-pro-slantire](https://github.com/Barbapapazes/slantire/assets/904724/01d27c6b-cf85-412e-b0bc-a718ad9990c1)
+
 # Slantire
 
 [![Nuxt UI Pro](https://img.shields.io/badge/Made%20with-Nuxt%20UI%20Pro-00DC82?logo=nuxt.js&labelColor=020420)](https://ui.nuxt.com/pro)
