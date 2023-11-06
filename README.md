@@ -2,7 +2,7 @@
 
 [![Nuxt UI Pro](https://img.shields.io/badge/Made%20with-Nuxt%20UI%20Pro-00DC82?logo=nuxt.js&labelColor=020420)](https://ui.nuxt.com/pro)
 
-Slantire, [slan.ti.ˈɾɛ] from Na'Vi meaning '_inspiration_',  is a blog theme that you can use in [Nuxt Studio](https://nuxt.studio). (_NPM package coming soon_)
+Slantire, [slan.ti.ˈɾɛ] from Na'Vi meaning '_inspiration_',  is a blog theme that you can use in [Nuxt Studio](https://nuxt.studio).
 
 It is powered by [Nuxt Content](https://content.nuxt.com) and [Nuxt UI Pro](https://ui.nuxt.com/pro)!
 
