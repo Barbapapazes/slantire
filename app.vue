@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const { navigation } = useContent()
+const { slantire: { header } } = useAppConfig()
 
 const links = computed(() => {
   return navigation.value.map((item) => {
@@ -14,7 +15,10 @@ const links = computed(() => {
 <template>
   <UHeader :links="links">
     <template #logo>
-      <div class="flex items-center gap-2">
+      <template v-if="header?.logo?.dark || header?.logo?.light">
+        <UColorModeImage v-bind="{ class: 'h-6 w-auto', ...header?.logo }" />
+      </template>
+      <div v-else class="flex items-center gap-2">
         <UAvatar src="https://esteban-soubiran.site/esteban.webp" alt="Picture of Estéban Soubiran" />
         <span> Slantire </span>
       </div>
