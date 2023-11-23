@@ -22,7 +22,7 @@
     "@iconify-json/simple-icons": "^1.1.79",
     "@nuxt/devtools": "latest",
     "@nuxt/ui": "^2.10.0",
-    "@nuxt/ui-pro": "^0.4.2",
+    "@nuxt/ui-pro": "^5.0.0",
     "eslint": "^8.54.0",
     "nuxt": "^3.8.2"
   }

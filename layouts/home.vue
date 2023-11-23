@@ -6,7 +6,6 @@ const { page } = useContent()
 const { data: lastArticle } = await useAsyncData('content:home:last-article', () => queryContent('/articles/').where({ _path: /^\/articles\// }).only(['_path', 'title']).sort({ publishedAt: -1 }).findOne())
 
 const badges: Button[] = []
-
 if (lastArticle.value) {
   badges.push({
     to: lastArticle.value._path,
@@ -15,8 +14,6 @@ if (lastArticle.value) {
     icon: 'i-ph-arrow-right',
     size: 'xs',
     trailing: true,
-    // TODO: upstream - add the class option to the Button
-    class: 'font-semibold hover:bg-primary-100 dark:hover:bg-primary-900 rounded-full',
   })
 }
 
@@ -30,8 +27,14 @@ const { data: latestArticles } = await useAsyncData('content:home:latest-article
     :title="page.hero.title"
     :description="page.hero.description"
     :links="page.hero.links"
-    :badges="badges"
-  />
+  >
+    <template #headline>
+      <div class="flex justify-center gap-4">
+        <UButton v-for="badge in badges" :key="badge.label" v-bind="{ ui: { rounded: 'rounded-full' }, ...badge }" />
+      </div>
+    </template>
+  </ULandingHero>
+
   <ULandingSection :title="page.sections.inspirations.title" :links="page.sections.inspirations.links">
     <ULandingGrid :ui="{ wrapper: 'lg:grid-cols-2' }">
       <ULandingCard v-for="inspiration in page.sections.inspirations.cards" :key="inspiration.src" :title="inspiration.title" :description="inspiration.description" :to="inspiration.to" target="_blank">
@@ -43,9 +46,22 @@ const { data: latestArticles } = await useAsyncData('content:home:latest-article
   </ULandingSection>
 
   <UContainer>
-    <ULandingCTA :title="page.sections.articles.title" :description="page.sections.articles.description" :links="page.sections.articles.links" align="left">
+    <ULandingCTA
+      :title="page.sections.articles.title"
+      :description="page.sections.articles.description"
+      :links="page.sections.articles.links"
+      :card="false"
+      align="left"
+    >
       <div class="flex flex-col gap-8">
-        <UPageCard v-for="article in latestArticles" :key="article._path" :to="article._path" :title="article.title" :description="article.description" :ui="{ base: 'flex flex-row items-center', header: { padding: 'px-0 sm:p-0 py-0' } }">
+        <UPageCard
+          v-for="article in latestArticles"
+          :key="article._path"
+          :to="article._path"
+          :title="article.title"
+          :description="article.description"
+          :ui="{ wrapper: 'flex flex-row items-center', header: { base: 'w-1/3', padding: 'px-0 sm:p-0 py-0' } }"
+        >
           <template #header>
             <div class="aspect-[1/1] overflow-hidden">
               <img :src="article.cover.src" :alt="article.cover.alt" class="aspect-[1/1] w-[44rem] object-cover object-center group-hover:scale-105 transition-transform ease-in" width="1920" height="1080">
