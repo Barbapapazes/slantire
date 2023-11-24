@@ -68,4 +68,10 @@ export default defineAppConfig({
       'target': '_blank',
     },
   ],
+  toc: {
+    title: 'Table of Contents',
+    bottom: {
+      title: 'Ressources',
+    }
+  }
 })
