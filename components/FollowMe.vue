@@ -1,5 +1,12 @@
 <script lang="ts" setup>
-const { slantire: { socials } } = useAppConfig()
+import type { Button } from '@nuxt/ui/dist/runtime/types'
+
+defineProps({
+  socials: {
+    type: Array as PropType<Button[]>,
+    required: true
+  }
+})
 </script>
 
 <template>

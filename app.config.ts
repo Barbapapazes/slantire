@@ -43,34 +43,29 @@ export default defineAppConfig({
       divide: 'divide-none',
     },
   },
-  slantire: {
-    header: {
-      logo: {
-        alt: '',
-        light: '',
-        dark: ''
-      },
-      colorMode: true,
+  header: {
+    logo: {
+      alt: '',
+      light: '',
+      dark: '',
     },
-    socials: [
-      {
-        icon: 'i-ph-globe-duotone',
-        to: 'https://esteban-soubiran.site',
-        target: '_blank',
-        'aria-label': 'Esteban Soubiran website'
-      },
-      {
-        icon: 'i-simple-icons-x',
-        to: 'https://x.com/soubiran_',
-        target: '_blank',
-        'aria-label': 'X'
-      },
-      {
-        icon: 'i-simple-icons-github',
-        to: 'https://github.com/barbapapazes',
-        target: '_blank',
-        'aria-label': 'GitHub'
-      }
-    ]
-  }
+    colorMode: true,
+  },
+  socials: [
+    {
+      'icon': 'i-ph-globe-duotone',
+      'to': 'https://esteban-soubiran.site',
+      'target': '_blank',
+    },
+    {
+      'icon': 'i-simple-icons-x',
+      'to': 'https://x.com/soubiran_',
+      'target': '_blank',
+    },
+    {
+      'icon': 'i-simple-icons-github',
+      'to': 'https://github.com/barbapapazes',
+      'target': '_blank',
+    },
+  ],
 })
