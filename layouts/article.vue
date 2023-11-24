@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+const config = useAppConfig()
 const { page, toc } = useContent()
 </script>
 
@@ -12,13 +13,13 @@ const { page, toc } = useContent()
       </UPageBody>
 
       <template #right>
-        <UDocsToc :links="toc.links">
+        <UDocsToc :title="config.toc?.title" :links="toc.links">
           <template #bottom>
             <div class="hidden lg:block">
               <UDivider />
               <!-- TODO: upstream - add the hide and show like DocsToc  -->
               <UPageLinks
-                title="Resources" :links="page.resources"
+                :title="config.toc?.bottom?.title" :links="page.resources"
               />
             </div>
           </template>

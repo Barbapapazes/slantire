@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 const { navigation } = useContent()
+const config = useAppConfig()
 
 const links = computed(() => {
-  return navigation.value.map((item) => {
+  return navigation.value.map((item: any) => {
     return {
       label: item.title,
       to: item._path,
@@ -14,23 +15,26 @@ const links = computed(() => {
 <template>
   <UHeader :links="links">
     <template #logo>
-      <div class="flex items-center gap-2">
+      <template v-if="config.header?.logo?.dark || config.header?.logo?.light">
+        <UColorModeImage class="h-6 w-auto" :light="config.header?.logo?.light!" :dark="config.header?.logo?.dark!" :alt="config.header?.logo?.alt!" />
+      </template>
+      <div v-else class="flex items-center gap-2">
         <UAvatar src="https://esteban-soubiran.site/esteban.webp" alt="Picture of Estéban Soubiran" />
         <span> Slantire </span>
       </div>
     </template>
     <template #right>
       <div class="hidden lg:block">
-        <FollowMe />
+        <FollowMe :socials="config.socials" />
       </div>
-      <UTooltip class="mr-1 lg:mr-0 lg:ml-2" text="Toggle color mode" placement="bottom">
+      <UTooltip v-if="config.header?.colorMode" class="mr-1 lg:mr-0 lg:ml-2" text="Toggle color mode" placement="bottom">
         <UColorModeButton />
       </UTooltip>
     </template>
     <template #panel>
       <UAsideLinks :links="links" />
       <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <FollowMe />
+        <FollowMe :socials="config.socials" />
       </div>
     </template>
   </UHeader>
@@ -47,7 +51,7 @@ const links = computed(() => {
       <span />
     </template>
     <template #right>
-      <FollowMe />
+      <FollowMe :socials="config.socials" />
     </template>
   </UFooter>
 </template>
