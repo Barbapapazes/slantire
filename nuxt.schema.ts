@@ -67,6 +67,27 @@ export default defineNuxtSchema({
         }),
       },
     }),
+    global: group({
+      title: 'Global',
+      description: 'Global configuration.',
+      icon: 'i-mdi-web',
+      fields: {
+        name: field({
+          type: 'string',
+          title: 'Name',
+          description: 'Name of your website.',
+          icon: 'i-mdi-format-title',
+          default: 'Slantire',
+        }),
+        tagLine: field({
+          type: 'string',
+          title: 'Tag Line',
+          description: 'Tag line of your website.',
+          icon: 'i-mdi-format-title',
+          default: 'My personal website',
+        }),
+      },
+    }),
     header: group({
       title: 'Header',
       description: 'Header configuration.',

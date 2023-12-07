@@ -43,6 +43,10 @@ export default defineAppConfig({
       divide: 'divide-none',
     },
   },
+  global: {
+    name: 'Slantire',
+    tagLine: 'My personal website',
+  },
   header: {
     logo: {
       alt: '',
@@ -53,25 +57,25 @@ export default defineAppConfig({
   },
   socials: [
     {
-      'icon': 'i-ph-globe-duotone',
-      'to': 'https://esteban-soubiran.site',
-      'target': '_blank',
+      icon: 'i-ph-globe-duotone',
+      to: 'https://esteban-soubiran.site',
+      target: '_blank',
     },
     {
-      'icon': 'i-simple-icons-x',
-      'to': 'https://x.com/soubiran_',
-      'target': '_blank',
+      icon: 'i-simple-icons-x',
+      to: 'https://x.com/soubiran_',
+      target: '_blank',
     },
     {
-      'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/barbapapazes',
-      'target': '_blank',
+      icon: 'i-simple-icons-github',
+      to: 'https://github.com/barbapapazes',
+      target: '_blank',
     },
   ],
   toc: {
     title: 'Table of Contents',
     bottom: {
       title: 'Ressources',
-    }
-  }
+    },
+  },
 })

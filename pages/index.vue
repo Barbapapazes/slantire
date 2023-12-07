@@ -1,9 +1,31 @@
 <script lang="ts" setup>
 import type { Button } from '@nuxt/ui/dist/runtime/types'
 
-const { page } = useContent()
+const { data: page, error: pageError } = await useAsyncData('index', () => queryContent('/').findOne())
 
-const { data: lastArticle } = await useAsyncData('content:home:last-article', () => queryContent('/articles/').where({ _path: /^\/articles\// }).only(['_path', 'title']).sort({ publishedAt: -1 }).findOne())
+if (pageError.value) {
+  throw createError({
+    statusCode: 404,
+    message: 'Page not found',
+    fatal: true,
+  })
+}
+
+useSeoMeta({
+  title: page.value?.title,
+  ogTitle: page.value?.title,
+  description: page.value?.description,
+  ogDescription: page.value?.description,
+})
+
+const { data: lastArticle, error: lastArticleError } = await useAsyncData('content:home:last-article', () => queryContent('/articles/').where({ _path: /^\/articles\// }).only(['_path', 'title']).sort({ publishedAt: -1 }).findOne())
+
+if (lastArticleError.value) {
+  throw createError({
+    statusCode: 404,
+    message: 'Unable to fetch last articles',
+  })
+}
 
 const badges: Button[] = []
 if (lastArticle.value) {
@@ -17,12 +39,19 @@ if (lastArticle.value) {
   })
 }
 
-const { data: latestArticles } = await useAsyncData('content:home:latest-articles', () => queryContent('/articles/').only(['_path', 'title', 'description', 'publishedAt', 'authors', 'cover']).sort({ publishedAt: -1 }).limit(2).find())
+const { data: latestArticles, error: latestArticlesError } = await useAsyncData('content:home:latest-articles', () => queryContent('/articles/').only(['_path', 'title', 'description', 'publishedAt', 'authors', 'cover']).sort({ publishedAt: -1 }).limit(2).find(), { default: () => [] })
+
+if (latestArticlesError.value) {
+  throw createError({
+    statusCode: 404,
+    message: 'Unable to fetch latest articles',
+  })
+}
 </script>
 
 <template>
   <ULandingHero
-    v-if="lastArticle"
+    v-if="page && lastArticle"
     :ui="{ title: 'max-w-3xl mx-auto', description: 'max-w-2xl mx-auto' }"
     :title="page.hero.title"
     :description="page.hero.description"
@@ -35,7 +64,7 @@ const { data: latestArticles } = await useAsyncData('content:home:latest-article
     </template>
   </ULandingHero>
 
-  <ULandingSection :title="page.sections.inspirations.title" :links="page.sections.inspirations.links">
+  <ULandingSection v-if="page" :title="page.sections.inspirations.title" :links="page.sections.inspirations.links">
     <ULandingGrid :ui="{ wrapper: 'lg:grid-cols-2' }">
       <ULandingCard v-for="inspiration in page.sections.inspirations.cards" :key="inspiration.src" :title="inspiration.title" :description="inspiration.description" :to="inspiration.to" target="_blank">
         <template #container>
@@ -45,7 +74,7 @@ const { data: latestArticles } = await useAsyncData('content:home:latest-article
     </ULandingGrid>
   </ULandingSection>
 
-  <UContainer>
+  <UContainer v-if="page">
     <ULandingCTA
       :title="page.sections.articles.title"
       :description="page.sections.articles.description"

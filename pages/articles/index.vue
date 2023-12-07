@@ -1,15 +1,39 @@
 <script lang="ts" setup>
-const { data: home } = await useAsyncData('content:articles-home', () => queryContent('/articles').findOne())
-const { data } = await useAsyncData('content:articles', () => queryContent('/articles/').only(['_path', 'title', 'description', 'publishedAt', 'authors', 'cover']).sort({ publishedAt: -1 }).find())
+const route = useRoute()
+
+const { data: page, error } = useAsyncData(route.path, () => queryContent(route.path).findOne())
+
+if (error.value) {
+  throw createError({
+    statusCode: 404,
+    message: 'Page not found',
+    fatal: true,
+  })
+}
+
+useSeoMeta({
+  title: page.value?.title,
+  ogTitle: page.value?.title,
+  description: page.value?.description,
+  ogDescription: page.value?.description,
+})
+
+const { data: articles, error: articlesError } = await useAsyncData('content:articles', () => queryContent('/articles/').only(['_path', 'title', 'description', 'publishedAt', 'authors', 'cover']).sort({ publishedAt: -1 }).find(), { default: () => [] })
+
+if (articlesError.value) {
+  throw createError({
+    statusCode: 404,
+    message: 'Unable to fetch articles',
+  })
+}
 </script>
 
 <template>
-  <UContainer>
+  <UContainer v-if="page">
     <UPage>
-      <UPageHero v-if="home" :title="home.hero.title" :description="home.hero.description" />
+      <UPageHero :title="page.hero.title" :description="page.hero.description" />
       <UPageGrid>
-        <!-- TODO: upstream, do not have correct -->
-        <UPageCard v-for="article in data" :key="article._path" :title="article.title" :description="article.description" :to="article._path" :ui="{ header: { padding: 'px-0 sm:p-0 py-0' }, body: { padding: '!pb-0' } }">
+        <UPageCard v-for="article in articles" :key="article._path" :title="article.title" :description="article.description" :to="article._path" :ui="{ header: { padding: 'px-0 sm:p-0 py-0' }, body: { padding: '!pb-0' } }">
           <template #header>
             <div class="aspect-[16/9] overflow-hidden">
               <img :src="article.cover.src" :alt="article.cover.alt" class="aspect-[16/9] object-cover object-center group-hover:scale-105 transition-transform ease-in" width="1920" height="1080">

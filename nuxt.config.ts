@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/content', '@nuxt/ui', '@nuxthq/studio'],
 
   content: {
-    documentDriven: true,
+    documentDriven: false,
   },
 
   ui: {

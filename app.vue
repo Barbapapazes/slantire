@@ -1,14 +1,40 @@
 <script lang="ts" setup>
-const { navigation } = useContent()
-const config = useAppConfig()
+const { data: navigation, error } = await useAsyncData('navigation', () => fetchContentNavigation())
+
+if (error.value) {
+  throw createError({
+    statusCode: 500,
+    message: 'Unable to fetch navigation',
+    fatal: true,
+  })
+}
 
 const links = computed(() => {
+  if (!navigation.value)
+    return []
+
   return navigation.value.map((item: any) => {
     return {
       label: item.title,
       to: item._path,
     }
   })
+})
+
+const config = useAppConfig()
+
+const colorMode = useColorMode()
+const color = computed(() => colorMode.value === 'dark' ? '#18181b' : 'white')
+
+useHead({
+  titleTemplate: title => title ? `${title} - ${config.global.name}` : `${config.global.name}: ${config.global.tagLine}`,
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { key: 'theme-color', name: 'theme-color', content: color },
+  ],
+  htmlAttrs: {
+    lang: 'en',
+  },
 })
 </script>
 
@@ -20,7 +46,7 @@ const links = computed(() => {
       </template>
       <div v-else class="flex items-center gap-2">
         <UAvatar src="https://esteban-soubiran.site/esteban.webp" alt="Picture of Estéban Soubiran" />
-        <span> Slantire </span>
+        <span> {{ config.global.name }} </span>
       </div>
     </template>
     <template #right>
