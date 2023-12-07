@@ -20,6 +20,9 @@
     "@nuxt/ui-pro": "^0.5.0",
     "@nuxthq/studio": "^1.0.5",
     "eslint": "^8.55.0",
-    "nuxt": "^3.8.2"
+    "nuxt": "^3.8.2",
+    "nuxt-og-image": "^2.2.4",
+    "nuxt-simple-robots": "^3.1.9",
+    "nuxt-simple-sitemap": "^4.1.9"
   }
 }

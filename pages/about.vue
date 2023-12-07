@@ -11,14 +11,20 @@ if (error.value) {
   })
 }
 
+const config = useAppConfig()
+
 useSeoMeta({
   title: page.value?.title,
   ogTitle: page.value?.title,
-  description: page.value?.description,
-  ogDescription: page.value?.description,
+  description: page.value?.description || config.seo.tagLine,
+  ogDescription: page.value?.description || config.seo.tagLine,
 })
 
-const config = useAppConfig()
+defineOgImage({
+  component: 'Website',
+  title: page.value?.title,
+  description: page.value?.description || config.seo.tagLine,
+})
 </script>
 
 <template>

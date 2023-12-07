@@ -8,6 +8,8 @@ Slantire, [slan.ti.ˈɾɛ] from Na'Vi meaning '_inspiration_',  is a blog theme 
 
 It is powered by [Nuxt Content](https://content.nuxt.com) and [Nuxt UI Pro](https://ui.nuxt.com/pro)!
 
+<!-- explain that user will need to add prod env (related to nuxt seo), add links like https://github.com/nuxt-ui-pro/docs -->
+
 ## Setup
 
 Make sure to install the dependencies:

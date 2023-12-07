@@ -67,22 +67,22 @@ export default defineNuxtSchema({
         }),
       },
     }),
-    global: group({
-      title: 'Global',
-      description: 'Global configuration.',
-      icon: 'i-mdi-web',
+    seo: group({
+      title: 'SEO',
+      description: 'SEO configuration.',
+      icon: 'i-ph-app-window',
       fields: {
-        name: field({
+        siteName: field({
           type: 'string',
-          title: 'Name',
-          description: 'Name of your website.',
-          icon: 'i-mdi-format-title',
+          title: 'Site Name',
+          description: 'Name used in ogSiteName and used as second part of your page title (My page title - Slantire).',
+          icon: 'i-mdi-web',
           default: 'Slantire',
         }),
         tagLine: field({
           type: 'string',
           title: 'Tag Line',
-          description: 'Tag line of your website.',
+          description: 'Used when no description is provided in your content and in title when no title is provided in your content (Slantire - My personal website).',
           icon: 'i-mdi-format-title',
           default: 'My personal website',
         }),

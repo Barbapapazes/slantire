@@ -43,8 +43,8 @@ export default defineAppConfig({
       divide: 'divide-none',
     },
   },
-  global: {
-    name: 'Slantire',
+  seo: {
+    siteName: 'Slantire',
     tagLine: 'My personal website',
   },
   header: {

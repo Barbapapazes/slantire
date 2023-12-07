@@ -11,11 +11,19 @@ if (pageError.value) {
   })
 }
 
+const config = useAppConfig()
+
 useSeoMeta({
   title: page.value?.title,
   ogTitle: page.value?.title,
-  description: page.value?.description,
-  ogDescription: page.value?.description,
+  description: page.value?.description || config.seo.tagLine,
+  ogDescription: page.value?.description || config.seo.tagLine,
+})
+
+defineOgImage({
+  component: 'Website',
+  title: page.value?.title,
+  description: page.value?.description || config.seo.tagLine,
 })
 
 const { data: lastArticle, error: lastArticleError } = await useAsyncData('content:home:last-article', () => queryContent('/articles/').where({ _path: /^\/articles\// }).only(['_path', 'title']).sort({ publishedAt: -1 }).findOne())

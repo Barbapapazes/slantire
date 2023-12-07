@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const route = useRoute()
 
-const { data: page, error } = useAsyncData(route.path, () => queryContent(route.path).findOne())
+const { data: page, error } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
 
 if (error.value) {
   throw createError({
@@ -11,11 +11,19 @@ if (error.value) {
   })
 }
 
+const config = useAppConfig()
+
 useSeoMeta({
   title: page.value?.title,
   ogTitle: page.value?.title,
-  description: page.value?.description,
-  ogDescription: page.value?.description,
+  description: page.value?.description || config.seo.tagLine,
+  ogDescription: page.value?.description || config.seo.tagLine,
+})
+
+defineOgImage({
+  component: 'Website',
+  title: page.value?.title,
+  description: page.value?.description || config.seo.tagLine,
 })
 
 const { data: articles, error: articlesError } = await useAsyncData('content:articles', () => queryContent('/articles/').only(['_path', 'title', 'description', 'publishedAt', 'authors', 'cover']).sort({ publishedAt: -1 }).find(), { default: () => [] })

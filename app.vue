@@ -27,7 +27,7 @@ const colorMode = useColorMode()
 const color = computed(() => colorMode.value === 'dark' ? '#18181b' : 'white')
 
 useHead({
-  titleTemplate: title => title ? `${title} - ${config.global.name}` : `${config.global.name}: ${config.global.tagLine}`,
+  titleTemplate: title => title ? `${title} - ${config.seo.siteName}` : `${config.seo.siteName}: ${config.seo.tagLine}`,
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { key: 'theme-color', name: 'theme-color', content: color },
@@ -36,6 +36,13 @@ useHead({
     lang: 'en',
   },
 })
+
+useSeoMeta({
+  ogSiteName: config.seo.siteName,
+  twitterCard: 'summary_large_image',
+})
+
+defineRobotMeta()
 </script>
 
 <template>
@@ -46,7 +53,7 @@ useHead({
       </template>
       <div v-else class="flex items-center gap-2">
         <UAvatar src="https://esteban-soubiran.site/esteban.webp" alt="Picture of Estéban Soubiran" />
-        <span> {{ config.global.name }} </span>
+        <span> {{ config.seo.siteName }} </span>
       </div>
     </template>
     <template #right>
