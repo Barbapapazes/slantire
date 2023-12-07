@@ -4,8 +4,8 @@ import type { Button } from '@nuxt/ui/dist/runtime/types'
 defineProps({
   socials: {
     type: Array as PropType<Button[]>,
-    required: true
-  }
+    required: true,
+  },
 })
 </script>
 
