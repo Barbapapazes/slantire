@@ -17,9 +17,6 @@ importers:
       '@nuxt/content':
         specifier: ^2.9.0
         version: 2.9.0(nuxt@3.8.2(@parcel/watcher@2.3.0)(@types/node@20.10.0)(encoding@0.1.13)(eslint@9.5.0)(optionator@0.9.3)(rollup@4.5.2)(terser@5.24.0)(typescript@5.3.2)(vite@4.5.0(@types/node@20.10.0)(terser@5.24.0)))(rollup@4.5.2)(vue@3.3.8(typescript@5.3.2))
-      '@nuxt/devtools':
-        specifier: latest
-        version: 1.0.4(encoding@0.1.13)(nuxt@3.8.2(@parcel/watcher@2.3.0)(@types/node@20.10.0)(encoding@0.1.13)(eslint@9.5.0)(optionator@0.9.3)(rollup@4.5.2)(terser@5.24.0)(typescript@5.3.2)(vite@4.5.0(@types/node@20.10.0)(terser@5.24.0)))(rollup@4.5.2)(vite@4.5.0(@types/node@20.10.0)(terser@5.24.0))
       '@nuxt/eslint':
         specifier: ^0.3.13
         version: 0.3.13(eslint@9.5.0)(nuxt@3.8.2(@parcel/watcher@2.3.0)(@types/node@20.10.0)(encoding@0.1.13)(eslint@9.5.0)(optionator@0.9.3)(rollup@4.5.2)(terser@5.24.0)(typescript@5.3.2)(vite@4.5.0(@types/node@20.10.0)(terser@5.24.0)))(rollup@4.5.2)(typescript@5.3.2)(vite@4.5.0(@types/node@20.10.0)(terser@5.24.0))
