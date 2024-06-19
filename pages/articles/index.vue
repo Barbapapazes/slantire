@@ -39,12 +39,28 @@ if (articlesError.value) {
 <template>
   <UContainer v-if="page">
     <UPage>
-      <UPageHero :title="page.hero.title" :description="page.hero.description" />
+      <UPageHero
+        :title="page.hero.title"
+        :description="page.hero.description"
+      />
       <UPageGrid>
-        <UPageCard v-for="article in articles" :key="article._path" :title="article.title" :description="article.description" :to="article._path" :ui="{ header: { padding: 'px-0 sm:p-0 py-0' }, body: { padding: '!pb-0' } }">
+        <UPageCard
+          v-for="article in articles"
+          :key="article._path"
+          :title="article.title"
+          :description="article.description"
+          :to="article._path"
+          :ui="{ header: { padding: 'px-0 sm:p-0 py-0' }, body: { padding: '!pb-0' } }"
+        >
           <template #header>
             <div class="aspect-[16/9] overflow-hidden">
-              <img :src="article.cover.src" :alt="article.cover.alt" class="aspect-[16/9] object-cover object-center group-hover:scale-105 transition-transform ease-in" width="1920" height="1080">
+              <img
+                :src="article.cover.src"
+                :alt="article.cover.alt"
+                class="aspect-[16/9] object-cover object-center group-hover:scale-105 transition-transform ease-in"
+                width="1920"
+                height="1080"
+              >
             </div>
           </template>
           <template #footer>
@@ -61,9 +77,24 @@ if (articlesError.value) {
               </dt>
               <dd>
                 <UAvatarGroup size="xs">
-                  <UAvatar v-for="author in article.authors" :key="author.name" :src="author.avatar" :alt="author.name" :title="author.name" class="hover:scale-105 hover:ring-primary-500 dark:hover:ring-primary-400 transition-transform">
-                    <NuxtLink :to="`https://x.com/${author.twitter}`" target="_blank" class="focus:outline-none" tabindex="-1">
-                      <span class="absolute inset-0" aria-hidden="true" />
+                  <UAvatar
+                    v-for="author in article.authors"
+                    :key="author.name"
+                    :src="author.avatar"
+                    :alt="author.name"
+                    :title="author.name"
+                    class="hover:scale-105 hover:ring-primary-500 dark:hover:ring-primary-400 transition-transform"
+                  >
+                    <NuxtLink
+                      :to="`https://x.com/${author.twitter}`"
+                      target="_blank"
+                      class="focus:outline-none"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="absolute inset-0"
+                        aria-hidden="true"
+                      />
                     </NuxtLink>
                   </UAvatar>
                 </UAvatarGroup>

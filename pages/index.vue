@@ -67,16 +67,36 @@ if (latestArticlesError.value) {
   >
     <template #headline>
       <div class="flex justify-center gap-4">
-        <UButton v-for="badge in badges" :key="badge.label" v-bind="{ ui: { rounded: 'rounded-full' }, ...badge }" />
+        <UButton
+          v-for="badge in badges"
+          :key="badge.label"
+          v-bind="{ ui: { rounded: 'rounded-full' }, ...badge }"
+        />
       </div>
     </template>
   </ULandingHero>
 
-  <ULandingSection v-if="page" :title="page.sections.inspirations.title" :links="page.sections.inspirations.links">
+  <ULandingSection
+    v-if="page"
+    :title="page.sections.inspirations.title"
+    :links="page.sections.inspirations.links"
+  >
     <ULandingGrid :ui="{ wrapper: 'lg:grid-cols-2' }">
-      <ULandingCard v-for="inspiration in page.sections.inspirations.cards" :key="inspiration.src" :title="inspiration.title" :description="inspiration.description" :to="inspiration.to" target="_blank">
+      <ULandingCard
+        v-for="inspiration in page.sections.inspirations.cards"
+        :key="inspiration.src"
+        :title="inspiration.title"
+        :description="inspiration.description"
+        :to="inspiration.to"
+        target="_blank"
+      >
         <template #container>
-          <img :src="inspiration.src" :alt="inspiration.alt" class="mt-4 aspect-[16/9] object-cover object-center rounded-md" :ui="{ body: { base: 'px-0 py-0 sm:p-0' } }">
+          <img
+            :src="inspiration.src"
+            :alt="inspiration.alt"
+            class="mt-4 aspect-[16/9] object-cover object-center rounded-md"
+            :ui="{ body: { base: 'px-0 py-0 sm:p-0' } }"
+          >
         </template>
       </ULandingCard>
     </ULandingGrid>
@@ -101,7 +121,13 @@ if (latestArticlesError.value) {
         >
           <template #header>
             <div class="aspect-[1/1] overflow-hidden">
-              <img :src="article.cover.src" :alt="article.cover.alt" class="aspect-[1/1] w-[44rem] object-cover object-center group-hover:scale-105 transition-transform ease-in" width="1920" height="1080">
+              <img
+                :src="article.cover.src"
+                :alt="article.cover.alt"
+                class="aspect-[1/1] w-[44rem] object-cover object-center group-hover:scale-105 transition-transform ease-in"
+                width="1920"
+                height="1080"
+              >
             </div>
           </template>
         </UPageCard>

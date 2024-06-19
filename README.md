@@ -3,8 +3,6 @@
 # Slantire
 
 [![Nuxt UI Pro](https://img.shields.io/badge/Made%20with-Nuxt%20UI%20Pro-00DC82?logo=nuxt.js&labelColor=020420)](https://ui.nuxt.com/pro)
-<!-- [![Nuxt Studio](https://img.shields.io/badge/Open%20in%20Nuxt%20Studio-18181B?&logo=nuxt.js&logoColor=3BB5EC)](https://nuxt.studio/themes/slantire) -->
-[![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
 
 Slantire, [slan.ti.ˈɾɛ] from Na'Vi meaning '_inspiration_',  is a blog theme that you can use in [Nuxt Studio](https://nuxt.studio).
 

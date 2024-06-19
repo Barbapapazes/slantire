@@ -30,19 +30,26 @@ defineOgImage({
 <template>
   <UContainer v-if="page">
     <UPage>
-      <UPageHeader :title="page.title" :description="page.description" />
+      <UPageHeader
+        :title="page.title"
+        :description="page.description"
+      />
 
       <UPageBody prose>
         <ContentRenderer :value="page" />
       </UPageBody>
 
       <template #right>
-        <UDocsToc :title="config.toc?.title" :links="page.body.toc.links">
+        <UDocsToc
+          :title="config.toc?.title"
+          :links="page.body.toc.links"
+        >
           <template #bottom>
             <div class="hidden lg:block">
               <UDivider />
               <UPageLinks
-                :title="config.toc?.bottom?.title" :links="page.resources"
+                :title="config.toc?.bottom?.title"
+                :links="page.resources"
               />
             </div>
           </template>
