@@ -13,7 +13,7 @@ const links = computed(() => {
   if (!navigation.value)
     return []
 
-  return navigation.value.map((item: any) => {
+  return navigation.value.map((item) => {
     return {
       label: item.title,
       to: item._path,
