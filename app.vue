@@ -41,8 +41,6 @@ useSeoMeta({
   ogSiteName: config.seo.siteName,
   twitterCard: 'summary_large_image',
 })
-
-defineRobotMeta()
 </script>
 
 <template>

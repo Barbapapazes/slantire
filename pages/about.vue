@@ -20,8 +20,7 @@ useSeoMeta({
   ogDescription: page.value?.description || config.seo.tagLine,
 })
 
-defineOgImage({
-  component: 'Website',
+defineOgImageComponent('Website', {
   title: page.value?.title,
   description: page.value?.description || config.seo.tagLine,
 })

@@ -1,6 +1,14 @@
 export default defineNuxtConfig({
   extends: '@nuxt/ui-pro',
-  modules: ['@nuxt/content', '@nuxt/ui', '@nuxthq/studio', 'nuxt-simple-robots', 'nuxt-simple-sitemap', 'nuxt-og-image', '@nuxt/eslint'],
+  modules: [
+    '@nuxt/content',
+    '@nuxt/ui',
+    '@nuxthq/studio',
+    'nuxt-simple-robots',
+    'nuxt-og-image',
+    '@nuxt/eslint',
+    '@nuxtjs/sitemap',
+  ],
 
   content: {
     documentDriven: false,
@@ -18,7 +26,8 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/sitemap.xml'],
+      crawlLinks: true,
+      routes: ['/', '/sitemap.xml'],
     },
   },
 

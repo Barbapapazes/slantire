@@ -20,8 +20,7 @@ useSeoMeta({
   ogDescription: page.value?.description || config.seo.tagLine,
 })
 
-defineOgImage({
-  component: 'Website',
+defineOgImageComponent('Website', {
   title: page.value?.title,
   description: page.value?.description || config.seo.tagLine,
 })
@@ -58,80 +57,82 @@ if (latestArticlesError.value) {
 </script>
 
 <template>
-  <ULandingHero
-    v-if="page && lastArticle"
-    :ui="{ title: 'max-w-3xl mx-auto', description: 'max-w-2xl mx-auto' }"
-    :title="page.hero.title"
-    :description="page.hero.description"
-    :links="page.hero.links"
-  >
-    <template #headline>
-      <div class="flex justify-center gap-4">
-        <UButton
-          v-for="badge in badges"
-          :key="badge.label"
-          v-bind="{ ui: { rounded: 'rounded-full' }, ...badge }"
-        />
-      </div>
-    </template>
-  </ULandingHero>
-
-  <ULandingSection
-    v-if="page"
-    :title="page.sections.inspirations.title"
-    :links="page.sections.inspirations.links"
-  >
-    <ULandingGrid :ui="{ wrapper: 'lg:grid-cols-2' }">
-      <ULandingCard
-        v-for="inspiration in page.sections.inspirations.cards"
-        :key="inspiration.src"
-        :title="inspiration.title"
-        :description="inspiration.description"
-        :to="inspiration.to"
-        target="_blank"
-      >
-        <template #container>
-          <img
-            :src="inspiration.src"
-            :alt="inspiration.alt"
-            class="mt-4 aspect-[16/9] object-cover object-center rounded-md"
-            :ui="{ body: { base: 'px-0 py-0 sm:p-0' } }"
-          >
-        </template>
-      </ULandingCard>
-    </ULandingGrid>
-  </ULandingSection>
-
-  <UContainer v-if="page">
-    <ULandingCTA
-      :title="page.sections.articles.title"
-      :description="page.sections.articles.description"
-      :links="page.sections.articles.links"
-      :card="false"
-      align="left"
+  <div>
+    <ULandingHero
+      v-if="page && lastArticle"
+      :ui="{ title: 'max-w-3xl mx-auto', description: 'max-w-2xl mx-auto' }"
+      :title="page.hero.title"
+      :description="page.hero.description"
+      :links="page.hero.links"
     >
-      <div class="flex flex-col gap-8">
-        <UPageCard
-          v-for="article in latestArticles"
-          :key="article._path"
-          :to="article._path"
-          :title="article.title"
-          :description="article.description"
-          :ui="{ wrapper: 'flex flex-row items-center', header: { base: 'w-1/3', padding: 'px-0 sm:p-0 py-0' } }"
+      <template #headline>
+        <div class="flex justify-center gap-4">
+          <UButton
+            v-for="badge in badges"
+            :key="badge.label"
+            v-bind="{ ui: { rounded: 'rounded-full' }, ...badge }"
+          />
+        </div>
+      </template>
+    </ULandingHero>
+
+    <ULandingSection
+      v-if="page"
+      :title="page.sections.inspirations.title"
+      :links="page.sections.inspirations.links"
+    >
+      <ULandingGrid :ui="{ wrapper: 'lg:grid-cols-2' }">
+        <ULandingCard
+          v-for="inspiration in page.sections.inspirations.cards"
+          :key="inspiration.src"
+          :title="inspiration.title"
+          :description="inspiration.description"
+          :to="inspiration.to"
+          target="_blank"
         >
-          <template #header>
-            <div class="aspect-[1/1] overflow-hidden">
-              <img
-                :src="article.cover.src"
-                :alt="article.cover.alt"
-                class="aspect-[1/1] w-[44rem] object-cover object-center group-hover:scale-105 transition-transform ease-in"
-                width="1920"
-                height="1080"
-              >
-            </div>
+          <template #container>
+            <img
+              :src="inspiration.src"
+              :alt="inspiration.alt"
+              class="mt-4 aspect-[16/9] object-cover object-center rounded-md"
+              :ui="{ body: { base: 'px-0 py-0 sm:p-0' } }"
+            >
           </template>
-        </UPageCard>
-      </div>
-    </ULandingCTA>
-  </UContainer>
+        </ULandingCard>
+      </ULandingGrid>
+    </ULandingSection>
+
+    <UContainer v-if="page">
+      <ULandingCTA
+        :title="page.sections.articles.title"
+        :description="page.sections.articles.description"
+        :links="page.sections.articles.links"
+        :card="false"
+        align="left"
+      >
+        <div class="flex flex-col gap-8">
+          <UPageCard
+            v-for="article in latestArticles"
+            :key="article._path"
+            :to="article._path"
+            :title="article.title"
+            :description="article.description"
+            :ui="{ wrapper: 'flex flex-row items-center overflow-hidden', header: { base: 'w-1/3', padding: 'px-0 sm:p-0 py-0' } }"
+          >
+            <template #header>
+              <div class="aspect-[1/1] overflow-hidden">
+                <img
+                  :src="article.cover.src"
+                  :alt="article.cover.alt"
+                  class="aspect-[1/1] w-[44rem] object-cover object-center group-hover:scale-105 transition-transform ease-in"
+                  width="1920"
+                  height="1080"
+                >
+              </div>
+            </template>
+          </UPageCard>
+        </div>
+      </ULandingCTA>
+    </UContainer>
+  </div>
 </template>

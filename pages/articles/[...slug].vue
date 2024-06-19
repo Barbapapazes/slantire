@@ -20,8 +20,7 @@ useSeoMeta({
   ogDescription: page.value?.description || config.seo.tagLine,
 })
 
-defineOgImage({
-  component: 'Website',
+defineOgImageComponent('Website', {
   title: page.value?.title,
   description: page.value?.description || config.seo.tagLine,
 })
@@ -40,7 +39,7 @@ defineOgImage({
       </UPageBody>
 
       <template #right>
-        <UDocsToc
+        <UContentToc
           :title="config.toc?.title"
           :links="page.body.toc.links"
         >
@@ -53,7 +52,7 @@ defineOgImage({
               />
             </div>
           </template>
-        </UDocsToc>
+        </UContentToc>
       </template>
     </UPage>
   </UContainer>

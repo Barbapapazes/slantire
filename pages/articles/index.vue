@@ -20,8 +20,7 @@ useSeoMeta({
   ogDescription: page.value?.description || config.seo.tagLine,
 })
 
-defineOgImage({
-  component: 'Website',
+defineOgImageComponent('Website', {
   title: page.value?.title,
   description: page.value?.description || config.seo.tagLine,
 })
@@ -50,7 +49,7 @@ if (articlesError.value) {
           :title="article.title"
           :description="article.description"
           :to="article._path"
-          :ui="{ header: { padding: 'px-0 sm:p-0 py-0' }, body: { padding: '!pb-0' } }"
+          :ui="{ wrapper: 'overflow-hidden', header: { padding: 'px-0 sm:p-0 py-0' }, body: { padding: '!pb-0' } }"
         >
           <template #header>
             <div class="aspect-[16/9] overflow-hidden">
