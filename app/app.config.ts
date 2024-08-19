@@ -47,28 +47,36 @@ export default defineAppConfig({
     siteName: 'Slantire',
     tagLine: 'My personal website',
   },
+  app: {
+    background: true,
+  },
   header: {
     logo: {
       alt: '',
       light: '',
       dark: '',
     },
+  },
+  footer: {
     colorMode: true,
   },
   socials: [
     {
-      icon: 'i-ph-globe-duotone',
-      to: 'https://esteban-soubiran.site',
-      target: '_blank',
-    },
-    {
-      icon: 'i-simple-icons-x',
-      to: 'https://x.com/soubiran_',
-      target: '_blank',
-    },
-    {
+      title: 'GitHub',
       icon: 'i-simple-icons-github',
-      to: 'https://github.com/barbapapazes',
+      to: 'https://gh.soubiran.dev',
+      target: '_blank',
+    },
+    {
+      title: 'X',
+      icon: 'i-simple-icons-x',
+      to: 'https://x.soubiran.dev',
+      target: '_blank',
+    },
+    {
+      title: 'LinkedIn',
+      icon: 'i-simple-icons-linkedin',
+      to: 'https://linkedin.soubiran.dev',
       target: '_blank',
     },
   ],

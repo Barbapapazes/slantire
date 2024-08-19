@@ -88,6 +88,20 @@ export default defineNuxtSchema({
         }),
       },
     }),
+    app: group({
+      title: 'App',
+      description: 'App configuration.',
+      icon: 'i-mdi-application-settings-outline',
+      fields: {
+        background: field({
+          type: 'boolean',
+          title: 'Background',
+          description: 'Enable or disable background animation.',
+          icon: 'i-mdi-image-filter-center-focus-strong-outline',
+          default: true,
+        }),
+      },
+    }),
     header: group({
       title: 'Header',
       description: 'Header configuration.',
@@ -121,6 +135,13 @@ export default defineNuxtSchema({
             }),
           },
         }),
+      },
+    }),
+    footer: group({
+      title: 'Footer',
+      description: 'Footer configuration.',
+      icon: 'i-mdi-page-layout-footer',
+      fields: {
         colorMode: field({
           type: 'boolean',
           title: 'Color Mode',

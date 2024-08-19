@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   },
 
   extends: '@nuxt/ui-pro',
+
   modules: [
     '@nuxt/content',
     '@nuxt/ui',
@@ -14,18 +15,10 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
 
-  content: {
-    documentDriven: false,
-  },
-
   sitemap: {
     sources: [
       '/api/__sitemap__/urls',
     ],
-  },
-
-  ui: {
-    icons: ['simple-icons', 'ph'],
   },
 
   nitro: {
@@ -42,4 +35,6 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
+
+  compatibilityDate: '2024-08-19',
 })

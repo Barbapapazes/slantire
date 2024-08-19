@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Button } from '@nuxt/ui/dist/runtime/types'
+import type { Button } from '#ui/types'
 
 const { data: page, error: pageError } = await useAsyncData('index', () => queryContent('/').findOne())
 
