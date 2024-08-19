@@ -59,12 +59,19 @@ export default defineAppConfig({
   },
   footer: {
     colorMode: true,
+    smallLinks: [
+      {
+        label: 'Support my work',
+        to: 'https://github.com/sponsors/barbapapazes',
+        target: '_blank',
+      },
+    ],
   },
   socials: [
     {
       title: 'GitHub',
       icon: 'i-simple-icons-github',
-      to: 'https://gh.soubiran.dev',
+      to: 'https://github.com/barbapapazes/slantire',
       target: '_blank',
     },
     {

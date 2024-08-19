@@ -1,21 +1,17 @@
 <script lang="ts" setup>
+import type { FooterLink } from '#ui-pro/types'
+
 defineProps<{
-  links: {
-    label: string
-    to: string
-  }[]
+  links: FooterLink[]
 }>()
 
 const config = useAppConfig()
 </script>
 
 <template>
-  <UFooter :links="links">
+  <UFooter :links="config.footer.smallLinks as FooterLink[]">
     <template #left>
       <UFooterLinks :links="links" />
-    </template>
-    <template #center>
-      <span />
     </template>
     <template #right>
       <div

@@ -149,6 +149,16 @@ export default defineNuxtSchema({
           icon: 'i-heroicons-moon-20-solid',
           default: true,
         }),
+        smallLinks: field({
+          type: 'array',
+          items: {
+            type: 'object',
+          },
+          title: 'Small Links',
+          description: 'Small links configuration.',
+          icon: 'i-mdi-link-variant',
+          default: [],
+        }),
       },
     }),
     socials: field({
