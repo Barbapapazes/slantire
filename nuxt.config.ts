@@ -1,7 +1,4 @@
 export default defineNuxtConfig({
-  future: {
-    compatibilityVersion: 4,
-  },
 
   extends: '@nuxt/ui-pro',
 
@@ -15,11 +12,12 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
 
-  sitemap: {
-    sources: [
-      '/api/__sitemap__/urls',
-    ],
+  devtools: { enabled: true },
+  future: {
+    compatibilityVersion: 4,
   },
+
+  compatibilityDate: '2024-08-19',
 
   nitro: {
     prerender: {
@@ -34,7 +32,9 @@ export default defineNuxtConfig({
     },
   },
 
-  devtools: { enabled: true },
-
-  compatibilityDate: '2024-08-19',
+  sitemap: {
+    sources: [
+      '/api/__sitemap__/urls',
+    ],
+  },
 })
