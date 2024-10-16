@@ -25,5 +25,5 @@
     "nuxt-og-image": "3.0.0-rc.53",
     "nuxt-simple-robots": "4.0.0-rc.17"
   },
-  "packageManager": "pnpm@9.7.1"
+  "packageManager": "pnpm@9.12.2"
 }
