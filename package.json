@@ -19,10 +19,10 @@
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/ui-pro": "^1.4.1",
     "@nuxthq/studio": "^2.0.3",
-    "@nuxtjs/sitemap": "^5.3.5",
+    "@nuxtjs/sitemap": "^8.0.15",
     "eslint": "^9.9.0",
     "nuxt": "^3.12.4",
-    "nuxt-og-image": "3.0.0-rc.53",
+    "nuxt-og-image": "6.5.0",
     "nuxt-simple-robots": "4.0.0-rc.17"
   },
   "packageManager": "pnpm@9.7.1"
